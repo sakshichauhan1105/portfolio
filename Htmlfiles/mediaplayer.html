@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .media-player {
+            text-align: center;
+            border: 2px solid #333;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        video, audio {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        .control-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 5px;
+        }
+
+        .control-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="media-player">
+    <!-- Audio Player -->
+    <div class="audio-player">
+        <h2>Audio Player</h2>
+        <audio controls>
+            <source src="C:\Users\svc20\Downloads" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" onclick="toggleAudio()">Toggle Audio</button>
+        <button class="control-btn" onclick="muteAudio()">Mute/Unmute</button>
+    </div>
+
+    <hr>
+
+    <!-- Video Player -->
+    <div class="video-player">
+        <h2>Video Player</h2>
+        <video controls>
+            <source src="C:\Users\svc20\Downloads" type="video/mp4">
+            Your browser does not support the video element.
+        </video>
+    </div>
+
+    <div class="controls">
+        <button class="control-btn" onclick="toggleVideo()">Toggle Video</button>
+        <button class="control-btn" onclick="muteVideo()">Mute/Unmute Video</button>
+    </div>
+</div>
+
+<script>
+    // Get audio and video elements
+    const audio = document.querySelector('audio');
+    const video = document.querySelector('video');
+
+    // Toggle audio visibility (play/pause)
+    function toggleAudio() {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+
+    // Mute or unmute the audio
+    function muteAudio() {
+        audio.muted = !audio.muted;
+    }
+
+    // Toggle video visibility (play/pause)
+    function toggleVideo() {
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    }
+
+    // Mute or unmute the video
+    function muteVideo() {
+        video.muted = !video.muted;
+    }
+</script>
+
+</body>
+</html>
